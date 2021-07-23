@@ -55,6 +55,98 @@ const Quotes = [
     {
         quote: "Life is 10% what happens to me and 90% of how I react to it.",
         author: "Charles Swindoll"
+    },
+    {
+        quote: "The most common way people give up their power is by thinking they don’t have any.",
+        author: "Alice Walker"
+    },
+    {
+        quote: "The mind is everything. What you think you become.",
+        author: "Buddha"
+    },
+    {
+        quote: "The best time to plant a tree was 20 years ago. The second best time is now.",
+        author: "Chinese Proverb"
+    },
+    {
+        quote: "An unexamined life is not worth living.",
+        author: "Socrates"
+    },
+    {
+        quote: "Eighty percent of success is showing up.",
+        author: "Woody Allen"
+    },
+    {
+        quote: "Your time is limited, so don’t waste it living someone else’s life.",
+        author: "Steve Jobs"
+    },
+    {
+        quote: "Winning isn’t everything, but wanting to win is.",
+        author: "Vince Lombardi"
+    },
+    {
+        quote: "I am not a product of my circumstances. I am a product of my decisions.",
+        author: "Stephen Covey"
+    },
+    {
+        quote: "Every child is an artist.  The problem is how to remain an artist once he grows up.",
+        author: "Pablo Picasso"
+    },
+    {
+        quote: "You can never cross the ocean until you have the courage to lose sight of the shore.",
+        author: "Christopher Columbus"
+    },
+    {
+        quote: "I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
+        author: "Maya Angelou"
+    },
+    {
+        quote: "Either you run the day, or the day runs you.",
+        author: "Jim Rohn"
+    },
+    {
+        quote: "Whether you think you can or you think you can’t, you’re right.",
+        author: "Henry Ford"
+    },
+    {
+        quote: "The two most important days in your life are the day you are born and the day you find out why.",
+        author: "Mark Twain"
+    },
+    {
+        quote: "Whatever you can do, or dream you can, begin it.  Boldness has genius, power and magic in it.",
+        author: "Johann Wolfgang von Goethe"
+    },
+    {
+        quote: "The best revenge is massive success.",
+        author: "Frank Sinatra"
+    },
+    {
+        quote: "People often say that motivation doesn’t last. Well, neither does bathing.  That’s why we recommend it daily.",
+        author: "Zig Ziglar"
+    },
+    {
+        quote: "Life shrinks or expands in proportion to one’s courage.",
+        author: "Anais Nin"
+    },
+    {
+        quote: "If you hear a voice within you say “you cannot paint,” then by all means paint and that voice will be silenced.",
+        author: "Vincent Van Gogh"
+    },
+    {
+        quote: "There is only one way to avoid criticism: do nothing, say nothing, and be nothing.",
+        author: "Aristotle"
+    },
+    {
+        quote: "Ask and it will be given to you; search, and you will find; knock and the door will be opened for you.",
+        author: "Jesus"
+    },
+    {
+        quote: "The only person you are destined to become is the person you decide to be.",
+        author: "Ralph Waldo Emerson"
+    },
+    {
+        quote: "Go confidently in the direction of your dreams.  Live the life you have imagined.",
+        author: "Henry David Thoreau"
     }
 ];
 
@@ -72,12 +164,13 @@ const Colors = [
 ];
 
 function getQuote() {
-    getRandomQuote()
+    getRandomQuote();
 };
 
 function getRandomQuote() {
     const RandomIndex = Math.floor(Math.random() * Quotes.length);
     const RandomQuote = Quotes[RandomIndex];
+
     let twitterUrl = "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=%22"
 
     let quoteInApiFormat = RandomQuote.quote.replace(/ /g, "%20");
@@ -88,10 +181,14 @@ function getRandomQuote() {
 
     twitterUrl += " - " + authorInApiFormat;
 
+    $('#text').text(RandomQuote.quote);
+    $('#author').html(RandomQuote.author);
+
 
     document.getElementById("tweet-quote").href = twitterUrl;
     document.getElementById("text").innerText = RandomQuote.quote;
     document.getElementById("author").innerText = RandomQuote.author;
+
 
     const RandomColor = Math.floor(Math.random() * Colors.length);
     $("body").animate(
@@ -110,6 +207,6 @@ function getRandomQuote() {
 }
 
 $(document).ready(function () {
-    getRandomQuote();
-    $('#new-quote').on('click', getRandomQuote);
+    getQuote();
+    $('#new-quote').on('click', getQuote);
 });
