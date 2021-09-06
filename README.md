@@ -1,4 +1,4 @@
-# A Random Quote Machine( https://rnwego.github.io/Random-Quote-Machine/)
+# A Random Quote Machine
 
 ## [App Preview](https://rnwego.github.io/Random-Quote-Machine/)
 
